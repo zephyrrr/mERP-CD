@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A45AF80-605A-4482-BD8A-ED2C6A035A8F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PythonScript2</RootNamespace>
+    <AssemblyName>PythonScript2</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Content Include="业务备案_任务\任务信息读取.py" />
+    <Content Include="业务备案_任务\任务批量备案_提单号.py" />
+    <Content Include="业务备案_任务\任务批量备案_提单号_货代.py" />
+    <Content Include="业务备案_任务\回货信息_货代读取.py" />
+    <Content Include="业务备案_任务\进场信息读取.py" />
+    <Content Include="固定资产\固定资产_生成折旧费用.py" />
+    <Content Include="对账单\应付对账单_对外_选择费用.py" />
+    <Content Include="对账单\应付对账单_车辆资产折旧_选择费用.py" />
+    <Content Include="服务\服务_读取提箱时间.py" />
+    <Content Include="资金票据_凭证\凭证_添加已确认对账单.py" />
+    <Content Include="车辆管理\车辆事故_生成费用.py" />
+    <Content Include="车辆管理\车辆保险_生成分摊费用.py" />
+    <Content Include="车辆管理\车辆保险_生成卖出费用.py" />
+    <Content Include="车辆管理\车辆其他_生成费用.py" />
+    <Content Include="车辆管理\车辆加油_生成费用.py" />
+    <Content Include="车辆管理\车辆机油_生成费用.py" />
+    <Content Include="车辆管理\车辆维修_生成费用.py" />
+    <Content Include="车辆管理\车辆资产_生成卖出费用.py" />
+    <Content Include="车辆管理\车辆资产_生成折旧费用.py" />
+    <Content Include="车辆管理\车辆轮胎_买入费用.py" />
+    <Content Include="车辆管理\车辆轮胎_结束费用.py" />
+    <Content Include="车辆管理\车辆轮胎_领用费用.py" />
+  </ItemGroup>
+</Project>

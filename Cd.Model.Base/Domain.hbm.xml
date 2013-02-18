@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping namespace="Cd.Model" assembly="Cd.Model.Yw" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Cd.Model.车辆, Cd.Model.Yw" table="参数备案_车辆" optimistic-lock="version">
+    <id name="ID" column="ID">
+      <generator class="guid.comb" />
+    </id>
+    <version name="Version" column="Version" type="Int32" unsaved-value="0" />
+    <property name="简称" length="20" not-null="true" unique="true" unique-key="UK_车辆_简称" />
+    <property name="车辆类别" not-null="true" />
+    <property name="车牌" length="20" not-null="true" />
+    <property name="挂车号" length="20" not-null="false" />
+    <property name="车主编号" column="车主" length="6" not-null="true" />
+    <property name="默认驾驶员编号" column="默认驾驶员" length="6" not-null="false" />
+    <property name="马力" length="6" not-null="true" />
+    <property name="默认出车" not-null="false" />
+    <property name="备注" length="500" not-null="false" />
+    <property name="卖出时间" not-null="false" />
+    <property name="CreatedBy" length="20" not-null="true" />
+    <property name="Created" not-null="true" />
+    <property name="UpdatedBy" length="20" not-null="false" />
+    <property name="Updated" not-null="false" />
+    <property name="IsActive" not-null="true" />
+    <property name="ClientId" not-null="true" />
+    <property name="OrgId" not-null="true" />
+    <many-to-one name="车主" not-null="true" update="false" insert="false" foreign-key="FK_车辆_车主" />
+    <many-to-one name="默认驾驶员" not-null="false" update="false" insert="false" foreign-key="FK_车辆_默认驾驶员" />
+  </class>
+  <class name="Cd.Model.任务, Cd.Model.Yw" table="业务备案_任务" optimistic-lock="version">
+    <id name="ID" column="ID">
+      <generator class="guid.comb" />
+    </id>
+    <version name="Version" column="Version" type="Int32" unsaved-value="0" />
+    <property name="任务类别" not-null="true" />
+    <property name="委托人编号" column="委托人" length="6" not-null="true" />
+    <property name="指运地编号" column="指运地" length="6" not-null="false" />
+    <property name="装卸货地编号" column="装卸货地" length="6" not-null="false" />
+    <property name="提箱地编号" column="提箱地" length="6" not-null="false" />
+    <property name="还箱地编号" column="还箱地" length="6" not-null="false" />
+    <property name="船公司编号" column="船公司" length="6" not-null="false" />
+    <property name="船名航次" length="50" not-null="false" />
+    <property name="自备箱" not-null="true" />
+    <property name="货代自编号" length="30" not-null="false" index="Idx_任务_货代自编号" />
+    <property name="箱量" not-null="false" />
+    <property name="箱号" length="12" not-null="false" index="Idx_任务_箱号" />
+    <property name="回货箱号" length="12" not-null="false" index="Idx_任务_回货箱号" />
+    <property name="箱型编号" column="箱型" not-null="false" />
+    <property name="提单号" length="50" not-null="false" />
+    <property name="备注" length="500" not-null="false" />
+    <property name="提箱时间" not-null="false" />
+    <property name="还箱时间" not-null="false" />
+    <property name="装卸货时间" not-null="false" />
+    <property name="提箱时间要求止" not-null="false" />
+    <property name="还箱时间要求止" not-null="false" />
+    <property name="重量" not-null="false" />
+    <property name="查验时间" not-null="false" />
+    <property name="到港时间" not-null="false" />
+    <property name="转关标志" not-null="false" />
+    <property name="放行时间" not-null="false" />
+    <property name="白卡排车时间" not-null="false" />
+    <property name="承运人还箱时间要求止" not-null="false" />
+    <property name="CreatedBy" length="20" not-null="true" />
+    <property name="Created" not-null="true" />
+    <property name="UpdatedBy" length="20" not-null="false" />
+    <property name="Updated" not-null="false" />
+    <property name="IsActive" not-null="true" />
+    <property name="ClientId" not-null="true" />
+    <property name="OrgId" not-null="true" />
+    <many-to-one name="车辆产值" not-null="false" cascade="none" foreign-key="FK_任务_车辆产值" />
+    <many-to-one name="委托人" not-null="true" update="false" insert="false" foreign-key="FK_任务_委托人" />
+    <many-to-one name="指运地" not-null="false" update="false" insert="false" foreign-key="FK_任务_指运地" />
+    <many-to-one name="装卸货地" not-null="false" update="false" insert="false" foreign-key="FK_任务_装卸货地" />
+    <many-to-one name="提箱地" not-null="false" update="false" insert="false" foreign-key="FK_任务_提箱地" />
+    <many-to-one name="还箱地" not-null="false" update="false" insert="false" foreign-key="FK_任务_还箱地" />
+    <many-to-one name="船公司" not-null="false" update="false" insert="false" foreign-key="FK_任务_船公司" />
+    <many-to-one name="箱型" not-null="false" update="false" insert="false" foreign-key="FK_任务_箱型" />
+  </class>
+  <class name="Cd.Model.业务费用理论值, Cd.Model.Yw" table="财务_业务费用理论值" optimistic-lock="version">
+    <id name="ID" column="ID">
+      <generator class="guid.comb" />
+    </id>
+    <version name="Version" column="Version" type="Int32" unsaved-value="0" />
+    <property name="费用项编号" column="费用项" length="3" not-null="false" />
+    <property name="收付标志" not-null="false" />
+    <property name="相关人编号" column="相关人" length="6" not-null="false" />
+    <property name="金额" precision="19" scale="2" not-null="false" />
+    <property name="任务ID" column="任务" not-null="false" />
+    <property name="数量" precision="19" scale="2" not-null="false" />
+    <property name="费用归属" not-null="true" />
+    <property name="车辆编号" column="车辆" not-null="false" />
+    <property name="CreatedBy" length="20" not-null="true" />
+    <property name="Created" not-null="true" />
+    <property name="UpdatedBy" length="20" not-null="false" />
+    <property name="Updated" not-null="false" />
+    <property name="IsActive" not-null="true" />
+    <property name="ClientId" not-null="true" />
+    <property name="OrgId" not-null="true" />
+    <many-to-one name="费用实体" not-null="true" index="Idx_业务费用理论值_费用实体" cascade="none" foreign-key="FK_业务费用理论值_费用实体" />
+    <many-to-one name="费用项" update="false" insert="false" foreign-key="FK_业务费用理论值_费用项" />
+    <many-to-one name="相关人" update="false" insert="false" foreign-key="FK_业务费用理论值_相关人" />
+    <many-to-one name="任务" not-null="false" update="false" insert="false" foreign-key="FK_业务费用理论值_任务" />
+    <many-to-one name="票" column="费用实体" not-null="true" update="false" insert="false" foreign-key="FK_业务费用理论值_普通票" />
+    <many-to-one name="车辆" not-null="false" update="false" insert="false" foreign-key="FK_业务费用理论值_车辆" />
+  </class>
+  <class name="Cd.Model.车队合同, Cd.Model.Yw" table="参数备案_车队合同" optimistic-lock="version">
+    <id name="ID" column="ID">
+      <generator class="guid.comb" />
+    </id>
+    <version name="Version" column="Version" type="Int32" unsaved-value="0" />
+    <property name="经手人编号" column="经手人" length="6" not-null="true" />
+    <property name="签约时间" not-null="true" />
+    <property name="有效期始" not-null="true" />
+    <property name="有效期止" not-null="true" />
+    <property name="CreatedBy" length="20" not-null="true" />
+    <property name="Created" not-null="true" />
+    <property name="UpdatedBy" length="20" not-null="false" />
+    <property name="Updated" not-null="false" />
+    <property name="IsActive" not-null="true" />
+    <property name="ClientId" not-null="true" />
+    <property name="OrgId" not-null="true" />
+    <many-to-one name="经手人" update="false" insert="false" foreign-key="FK_合同_经手人" />
+    <bag name="合同费用项" inverse="true" cascade="none">
+      <key column="车队合同" />
+      <one-to-many class="Cd.Model.车队合同费用项, Cd.Model.Yw" not-found="ignore" />
+    </bag>
+  </class>
+  <class name="Cd.Model.费用信息, Cd.Model.Yw" table="财务_费用信息" polymorphism="explicit" optimistic-lock="version">
+    <id name="ID" column="ID">
+      <generator class="guid.comb" />
+    </id>
+    <version name="Version" column="Version" type="Int32" unsaved-value="0" />
+    <property name="费用项编号" column="费用项" length="3" not-null="true" />
+    <property name="完全标志付" not-null="true" />
+    <property name="备注" length="500" />
+    <property name="警示状态" length="100" not-null="false" />
+    <property name="对外已确认" precision="19" scale="2" not-null="false" />
+    <property name="对外未确认" precision="19" scale="2" not-null="false" />
+    <property name="对外理论值" precision="19" scale="2" not-null="false" />
+    <property name="车主未确认" precision="19" scale="2" not-null="false" />
+    <property name="车主已确认" precision="19" scale="2" not-null="false" />
+    <property name="车主理论值" precision="19" scale="2" not-null="false" />
+    <property name="驾驶员已确认" precision="19" scale="2" not-null="false" />
+    <property name="驾驶员未确认" precision="19" scale="2" not-null="false" />
+    <property name="驾驶员理论值" precision="19" scale="2" not-null="false" />
+    <property name="委托人已确认" precision="19" scale="2" not-null="false" />
+    <property name="委托人未确认" precision="19" scale="2" not-null="false" />
+    <property name="委托人理论值" precision="19" scale="2" not-null="false" />
+    <property name="车队承担" precision="19" scale="2" not-null="false" />
+    <property name="车队理论值" precision="19" scale="2" not-null="false" />
+    <property name="更新时间" not-null="false" />
+    <property name="Submitted" not-null="true" />
+    <property name="CreatedBy" length="20" not-null="true" />
+    <property name="Created" not-null="true" />
+    <property name="UpdatedBy" length="20" not-null="false" />
+    <property name="Updated" not-null="false" />
+    <property name="IsActive" not-null="true" />
+    <property name="ClientId" not-null="true" />
+    <property name="OrgId" not-null="true" />
+    <many-to-one name="费用项" not-null="true" update="false" insert="false" foreign-key="FK_费用信息_费用项" />
+    <many-to-one name="车辆产值" not-null="true" cascade="none" foreign-key="FK_费用信息_车辆产值" />
+    <bag name="费用" inverse="true" cascade="none">
+      <key column="费用信息" />
+      <one-to-many class="Cd.Model.业务费用, Cd.Model.Yw" not-found="ignore" />
+    </bag>
+  </class>
+  <class name="Cd.Model.箱型, Cd.Model.Yw" table="参数备案_箱型" optimistic-lock="version">
+    <id name="编号" column="编号">
+      <generator class="assigned" />
+    </id>
+    <version name="Version" column="Version" type="Int32" unsaved-value="0" />
+    <property name="名称" length="10" not-null="true" unique="true" unique-key="UK_箱型_名称" />
+    <property name="中文名称" length="20" />
+    <property name="备注" length="100" />
+    <property name="CreatedBy" length="20" not-null="true" />
+    <property name="Created" not-null="true" />
+    <property name="UpdatedBy" length="20" not-null="false" />
+    <property name="Updated" not-null="false" />
+    <property name="IsActive" not-null="true" />
+    <property name="ClientId" not-null="true" />
+    <property name="OrgId" not-null="true" />
+  </class>
+  <class name="Cd.Model.车辆产值附加任务, Cd.Model.Yw" table="视图查询_车辆产值_信息汇总" mutable="false">
+    <id name="ID" column="ID">
+      <generator class="assigned" />
+    </id>
+    <property name="装卸货地" not-null="false" update="false" insert="false" />
+    <property name="委托人" not-null="false" update="false" insert="false" />
+    <property name="货代自编号" not-null="false" update="false" insert="false" />
+    <property name="箱号" not-null="false" update="false" insert="false" />
+    <property name="箱型" not-null="false" update="false" insert="false" />
+    <property name="任务类别" not-null="false" update="false" insert="false" />
+    <property name="驾驶员明细" column="驾驶员" not-null="false" update="false" insert="false" />
+    <property name="车辆产值" not-null="false" update="false" insert="false" />
+    <property name="指运地" not-null="false" update="false" insert="false" />
+  </class>
+  <class name="Cd.Model.车队费用项, Cd.Model.Yw" table="参数备案_费用项" optimistic-lock="version">
+    <id name="编号" column="编号" length="3">
+      <generator class="assigned" />
+    </id>
+    <version name="Version" column="Version" type="Int32" unsaved-value="0" />
+    <property name="名称" length="10" not-null="true" unique="true" unique-key="UK_费用项_名称" />
+    <property name="收入类别" />
+    <property name="支出类别" />
+    <property name="票" not-null="true" />
+    <property name="箱" not-null="true" />
+    <property name="委托人" />
+    <property name="车主" />
+    <property name="驾驶员" />
+    <property name="对外" />
+    <property name="车辆承担" not-null="false" />
+    <property name="CreatedBy" length="20" not-null="true" />
+    <property name="Created" not-null="true" />
+    <property name="UpdatedBy" length="20" not-null="false" />
+    <property name="Updated" not-null="false" />
+    <property name="IsActive" not-null="true" />
+    <property name="ClientId" not-null="true" />
+    <property name="OrgId" not-null="true" />
+  </class>
+  <subclass name="Cd.Model.业务费用, Cd.Model.Yw" discriminator-value="21" extends="Hd.Model.费用, Hd.Model.Base">
+    <property name="数量" precision="19" scale="2" not-null="false" />
+    <property name="费用归属" not-null="true" />
+    <property name="车辆编号" column="车辆" not-null="false" />
+    <property name="车辆承担" not-null="false" />
+    <many-to-one name="费用信息" not-null="false" cascade="none" foreign-key="FK_业务费用_费用信息" />
+    <many-to-one name="任务" not-null="false" cascade="none" foreign-key="FK_业务费用_任务" />
+    <many-to-one name="车辆产值" column="费用实体" not-null="false" update="false" insert="false" />
+    <many-to-one name="车辆" not-null="false" update="false" insert="false" foreign-key="FK_业务费用_车辆" />
+  </subclass>
+  <subclass name="Cd.Model.非业务车辆费用, Cd.Model.Yw" discriminator-value="22" extends="Hd.Model.费用, Hd.Model.Base">
+    <property name="车辆编号" column="车辆" not-null="false" />
+    <property name="费用归属" not-null="true" />
+    <property name="数量" not-null="false" />
+    <property name="车辆承担" not-null="false" />
+    <many-to-one name="车辆费用实体" column="费用实体" not-null="false" update="false" insert="false" />
+    <many-to-one name="车辆" not-null="false" update="false" insert="false" foreign-key="FK_非业务费用_车辆" />
+  </subclass>
+  <joined-subclass name="Cd.Model.车队合同费用项, Cd.Model.Yw" table="参数备案_车队合同费用项" extends="Hd.Model.合同费用项, Hd.Model.Base">
+    <key column="ID" foreign-key="FK_车队合同费用项_合同费用项" />
+    <property name="收付标志" not-null="true" />
+    <property name="费用归属" not-null="true" />
+    <property name="默认相关人" length="255" not-null="false" />
+    <many-to-one name="车队合同" not-null="true" cascade="none" foreign-key="FK_车队合同费用项_车队合同" />
+  </joined-subclass>
+  <joined-subclass name="Cd.Model.车辆产值, Cd.Model.Yw" table="业务备案_车辆产值" extends="Hd.Model.费用实体, Hd.Model.Base">
+    <key column="ID" foreign-key="FK_车辆产值_费用实体" />
+    <property name="日期" not-null="true" />
+    <property name="车辆编号" column="车辆" not-null="false" />
+    <property name="承运人编号" column="承运人" length="6" not-null="true" />
+    <property name="驾驶员编号" column="驾驶员" length="6" not-null="false" />
+    <property name="任务关系" not-null="false" />
+    <property name="特殊情况" not-null="false" />
+    <property name="路线" not-null="false" />
+    <property name="备注" length="500" not-null="false" />
+    <many-to-one name="车辆" not-null="false" update="false" insert="false" foreign-key="FK_车辆产值_车辆" />
+    <many-to-one name="承运人" not-null="true" update="false" insert="false" foreign-key="FK_车辆产值_承运人" />
+    <many-to-one name="驾驶员" not-null="false" update="false" insert="false" foreign-key="FK_车辆产值_驾驶员" />
+    <many-to-one name="附加任务" column="ID" update="false" insert="false" />
+    <bag name="任务" inverse="true" cascade="none">
+      <key column="车辆产值" />
+      <one-to-many class="Cd.Model.任务, Cd.Model.Yw" not-found="ignore" />
+    </bag>
+    <bag name="业务费用" inverse="true" cascade="none">
+      <key column="费用实体" />
+      <one-to-many class="Cd.Model.业务费用, Cd.Model.Yw" not-found="ignore" />
+    </bag>
+  </joined-subclass>
+  <joined-subclass name="Cd.Model.车辆费用实体, Cd.Model.Yw" table="车辆_车辆费用实体" extends="Hd.Model.费用实体, Hd.Model.Base">
+    <key column="ID" />
+    <property name="日期" not-null="false" />
+    <property name="相关人编号" column="相关人" length="6" not-null="false" />
+    <property name="金额" precision="19" scale="2" not-null="false" />
+    <property name="车主编号" column="车主" length="6" not-null="false" />
+    <property name="车辆编号" column="车辆" not-null="false" />
+    <property name="驾驶员编号" column="驾驶员" length="6" not-null="false" />
+    <property name="备注" length="500" not-null="false" />
+    <property name="警示状态" length="100" not-null="false" />
+    <property name="对外已确认" precision="19" scale="2" not-null="false" />
+    <property name="对外未确认" precision="19" scale="2" not-null="false" />
+    <property name="车主未确认" precision="19" scale="2" not-null="false" />
+    <property name="车主已确认" precision="19" scale="2" not-null="false" />
+    <property name="驾驶员已确认" precision="19" scale="2" not-null="false" />
+    <property name="驾驶员未确认" precision="19" scale="2" not-null="false" />
+    <property name="车队承担" precision="19" scale="2" not-null="false" />
+    <property name="更新时间" not-null="false" />
+    <many-to-one name="相关人" not-null="false" update="false" insert="false" />
+    <many-to-one name="车主" not-null="false" update="false" insert="false" />
+    <many-to-one name="车辆" not-null="false" update="false" insert="false" />
+    <many-to-one name="驾驶员" not-null="false" update="false" insert="false" />
+  </joined-subclass>
+  <joined-subclass name="Cd.Model.车辆加油, Cd.Model.Yw" table="车辆_加油" extends="Cd.Model.车辆费用实体, Cd.Model.Yw">
+    <key column="ID" />
+    <property name="升数" precision="19" scale="2" not-null="false" />
+  </joined-subclass>
+  <joined-subclass name="Cd.Model.车辆轮胎, Cd.Model.Yw" table="车辆_轮胎" extends="Cd.Model.车辆费用实体, Cd.Model.Yw">
+    <key column="ID" />
+    <property name="资产类别" not-null="false" />
+    <property name="购入时间" not-null="false" />
+    <property name="返回时间" not-null="false" />
+    <property name="名称" length="20" not-null="false" />
+    <property name="型号" length="20" not-null="false" />
+    <property name="轮胎号" length="20" not-null="true" />
+  </joined-subclass>
+  <joined-subclass name="Cd.Model.车辆维修, Cd.Model.Yw" table="车辆_维修" extends="Cd.Model.车辆费用实体, Cd.Model.Yw">
+    <key column="ID" />
+    <property name="修理类型" not-null="true" />
+    <property name="项目" length="50" not-null="false" />
+    <property name="上次日期" not-null="false" />
+  </joined-subclass>
+  <joined-subclass name="Cd.Model.车辆事故, Cd.Model.Yw" table="车辆_事故" extends="Cd.Model.车辆费用实体, Cd.Model.Yw">
+    <key column="ID" />
+  </joined-subclass>
+  <joined-subclass name="Cd.Model.车辆保险, Cd.Model.Yw" table="车辆_保险" extends="Cd.Model.车辆费用实体, Cd.Model.Yw" abstract="true">
+    <key column="ID" />
+    <property name="购入金额" precision="19" scale="2" not-null="false" />
+    <property name="剩余折旧" precision="19" scale="2" not-null="false" />
+    <property name="上次折旧日期" not-null="false" />
+    <property name="卖出时间" not-null="false" />
+  </joined-subclass>
+  <joined-subclass name="Cd.Model.车辆资产, Cd.Model.Yw" table="车辆_资产" extends="Cd.Model.车辆费用实体, Cd.Model.Yw">
+    <key column="ID" />
+    <property name="购入金额" precision="19" scale="2" not-null="false" />
+    <property name="购置税" precision="19" scale="2" not-null="false" />
+    <property name="发动机号" length="50" not-null="false" />
+    <property name="合格证号" length="50" not-null="false" />
+    <property name="识别代号" length="50" not-null="false" />
+    <property name="厂牌" length="50" not-null="false" />
+    <property name="产地" length="50" not-null="false" />
+    <property name="销售单位" length="50" not-null="false" />
+    <property name="卖出金额" precision="19" scale="2" not-null="false" />
+    <property name="剩余折旧" precision="19" scale="2" not-null="false" />
+    <property name="上次折旧日期" not-null="false" />
+    <property name="买方编号" column="买方" length="6" not-null="false" />
+    <many-to-one name="买方" not-null="false" update="false" insert="false" />
+  </joined-subclass>
+  <joined-subclass name="Cd.Model.车辆其他, Cd.Model.Yw" table="车辆_其他" extends="Cd.Model.车辆费用实体, Cd.Model.Yw">
+    <key column="ID" />
+  </joined-subclass>
+  <joined-subclass name="Cd.Model.车辆库存加油, Cd.Model.Yw" table="车辆_库存加油" extends="Cd.Model.车辆费用实体, Cd.Model.Yw">
+    <key column="ID" />
+    <property name="买卖标志" not-null="true" />
+    <property name="数量" precision="19" scale="2" not-null="false" />
+    <property name="重量" precision="19" scale="2" not-null="false" />
+    <property name="密度" precision="19" scale="3" not-null="false" />
+  </joined-subclass>
+  <joined-subclass name="Cd.Model.车辆机油, Cd.Model.Yw" table="车辆_机油" extends="Cd.Model.车辆费用实体, Cd.Model.Yw">
+    <key column="ID" />
+    <property name="机油类别" not-null="false" />
+    <property name="买卖标志" not-null="false" />
+    <property name="数量" precision="19" scale="2" not-null="false" />
+  </joined-subclass>
+</hibernate-mapping>

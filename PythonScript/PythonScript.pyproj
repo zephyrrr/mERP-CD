@@ -1,0 +1,75 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1ac79c74-2b4c-454f-8140-30eb60fedbb4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PythonScript</RootNamespace>
+    <AssemblyName>PythonScript</AssemblyName>
+    <Name>PythonScript</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\IronPython Studio\1.0\IronPython.targets" />
+  <ItemGroup>
+    <Reference Include="IronPython">
+      <HintPath>IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Modules">
+      <HintPath>IronPython.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="业务备案_任务\任务信息读取.py" />
+    <Compile Include="业务备案_任务\任务批量备案_提单号.py" />
+    <Compile Include="业务备案_任务\任务批量备案_提单号_货代.py" />
+    <Compile Include="业务备案_任务\回货信息_货代读取.py" />
+    <Compile Include="业务备案_任务\进场信息读取.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="固定资产\固定资产_生成折旧费用.py" />
+    <Compile Include="对账单\应付对账单_对外_选择费用.py" />
+    <Compile Include="对账单\应付对账单_车辆资产折旧_选择费用.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="服务\服务_读取提箱时间.py" />
+    <Compile Include="资金票据_凭证\凭证_添加已确认对账单.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="车辆管理\车辆事故_生成费用.py" />
+    <Compile Include="车辆管理\车辆保险_生成分摊费用.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="车辆管理\车辆保险_生成卖出费用.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="车辆管理\车辆其他_生成费用.py" />
+    <Compile Include="车辆管理\车辆加油_生成费用.py" />
+    <Compile Include="车辆管理\车辆机油_生成费用.py" />
+    <Compile Include="车辆管理\车辆维修_生成费用.py" />
+    <Compile Include="车辆管理\车辆资产_生成卖出费用.py" />
+    <Compile Include="车辆管理\车辆资产_生成折旧费用.py" />
+    <Compile Include="车辆管理\车辆轮胎_买入费用.py" />
+    <Compile Include="车辆管理\车辆轮胎_结束费用.py" />
+    <Compile Include="车辆管理\车辆轮胎_领用费用.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="资金票据_凭证" />
+    <Folder Include="业务备案_任务" />
+    <Folder Include="固定资产" />
+    <Folder Include="对账单" />
+    <Folder Include="服务" />
+    <Folder Include="车辆管理" />
+  </ItemGroup>
+</Project>

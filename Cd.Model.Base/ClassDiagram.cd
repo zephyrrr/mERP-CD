@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Cd.Model.车辆产值" Collapsed="true">
+    <Position X="0.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAABgAEAgggAAAAAAAAAAAAQAAAAAhAA=</HashCode>
+      <FileName>车辆产值.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="车辆" />
+      <Property Name="驾驶员" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="任务" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Cd.Model.车辆" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAABAAYAAAAA=</HashCode>
+      <FileName>车辆.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cd.Model.员工" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CIQAAAAQAAAAABAAAAAAAQUABABAAgAAAAAAIACQAAA=</HashCode>
+      <FileName>员工.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cd.Model.任务" Collapsed="true">
+    <Position X="0.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAEACEAAAwAAEAAAAAAAIICBICAAABAAIIAAEBCAAA=</HashCode>
+      <FileName>任务.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="车辆产值" />
+      <Property Name="委托人" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Cd.Model.客户" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAACAAAAAAAAAAAAAAIAAAAAgAAAAAAAAAACAA=</HashCode>
+      <FileName>客户.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cd.Model.车辆加油" Collapsed="true">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAiAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>车辆加油.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cd.Model.业务费用" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAEAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>费用.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="任务" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Cd.Model.非业务费用" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>费用.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="车辆" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Cd.Model.费用" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBgBAAAAIRBAQAAAAAAgAAAYIASAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>费用.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Cd.Model.费用实体" Collapsed="true">
+    <Position X="6.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACQAACAAIAAAACAA=</HashCode>
+      <FileName>费用实体.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="费用" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Cd.Model.车辆轮胎" Collapsed="true">
+    <Position X="10.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAAAAAAAABAAAAAgAkEAAUAAgAAAAEAAEIAAAAABEQA=</HashCode>
+      <FileName>车辆轮胎.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cd.Model.车辆事故" Collapsed="true">
+    <Position X="10.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAABgAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>车辆事故.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cd.Model.车辆修理" Collapsed="true">
+    <Position X="10.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAABAAAAAAAAABAAIAAgAAAAASAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>车辆修理.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>
